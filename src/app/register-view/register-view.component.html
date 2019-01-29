@@ -1,3 +1,12 @@
-<p>
-  register-view works!
-</p>
+<app-navbar-view></app-navbar-view>
+<div class="container_login">
+  <div class="list">
+    <span>Formulario de registro</span>
+    <input placeholder="nombre de usuario" type="text" name="username">
+    <input placeholder="email" type="text" name="email">
+    <input placeholder="contraseña" type="password" name="password" (keyup.enter)="login()">
+    <button class="button_login_reg" (click)="login()">
+      <span>Registrarse</span>
+    </button>
+  </div>
+</div>
