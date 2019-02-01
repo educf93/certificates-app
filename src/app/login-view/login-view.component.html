@@ -2,8 +2,8 @@
 <div class="container_login">
   <div class="list">
     <span>Control de acceso</span>
-    <input placeholder="nombre de usuario o email" type="text" name="username">
-    <input placeholder="contraseña" type="password" name="password" (keyup.enter)="login()">
+    <input placeholder="nombre de usuario o email" [(ngModel)]="user" type="text" name="username">
+    <input placeholder="contraseña" [(ngModel)]="password" type="password" name="password" (keyup.enter)="login()">
     <button class="button_login_reg" (click)="login()">
       <span>Acceder</span>
     </button>

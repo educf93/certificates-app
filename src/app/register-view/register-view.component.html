@@ -2,10 +2,12 @@
 <div class="container_login">
   <div class="list">
     <span>Formulario de registro</span>
-    <input placeholder="nombre de usuario" type="text" name="username">
-    <input placeholder="email" type="text" name="email">
-    <input placeholder="contraseña" type="password" name="password" (keyup.enter)="login()">
-    <button class="button_login_reg" (click)="login()">
+    <input placeholder="nombre de usuario" [(ngModel)]="username" type="text" name="username">
+    <input placeholder="email" type="text" [(ngModel)]="email" name="email">
+    <input placeholder="contraseña" type="password" [(ngModel)]="password" name="password" (keyup.enter)="login()">
+    <span class="redirect" *ngIf="valid">Usuario registrado, redireccionando...</span>
+    <span class="error" *ngIf="error">Error, vuelve a introducir los datos.</span>
+    <button class="button_login_reg" (click)="register()">
       <span>Registrarse</span>
     </button>
   </div>
