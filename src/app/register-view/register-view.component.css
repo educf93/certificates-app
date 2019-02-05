@@ -58,13 +58,13 @@
 	top:1px;
 }
 .redirect{
-    color:green;
-    margin: 0 20px; 
-    font-size: 12pt;
+    color:green !important;
+    margin: 0 20px !important; 
+    font-size: 12pt !important;
 }
 .error{
-    margin: 0 20px;
-    color: red;
-    font-size: 12pt;
+    margin: 0 20px !important;
+    color: red !important;
+    font-size: 12pt !important;
 }
 
