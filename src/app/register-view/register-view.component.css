@@ -60,9 +60,11 @@
 .redirect{
     color:green;
     margin: 0 20px; 
+    font-size: 12pt;
 }
 .error{
     margin: 0 20px;
     color: red;
+    font-size: 12pt;
 }
 

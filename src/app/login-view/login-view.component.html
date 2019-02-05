@@ -4,6 +4,7 @@
     <span>Control de acceso</span>
     <input placeholder="nombre de usuario o email" [(ngModel)]="user" type="text" name="username">
     <input placeholder="contraseña" [(ngModel)]="password" type="password" name="password" (keyup.enter)="login()">
+    <span *ngIf="showError" class="err">{{error}}</span>
     <button class="button_login_reg" (click)="login()">
       <span>Acceder</span>
     </button>
