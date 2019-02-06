@@ -19,7 +19,23 @@
       </div>
     </div>
     <div class="body">
-      <h1>No hay certificados cargados</h1>
+      <div class="row" *ngFor="let cert of data.certificates">
+        <div class="field">
+          {{cert.alias}}
+        </div>
+        <div class="field">
+          {{cert.entity}}
+        </div>
+        <div class="field">
+          {{cert.subject}}
+        </div>
+        <div class="field">
+          {{cert.idOrg}}
+        </div>
+        <div class="field">
+          {{cert.repo}}
+        </div>
+      </div>
     </div>
   </div>
 </div>

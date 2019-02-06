@@ -1,20 +1,19 @@
 export interface DataModel {
-    user:Array<Users>
-    certificate:Array<Certificates>
+    certificates:Array<Certificates>
 }
 
 export interface Users{
     iduser:number,
     username:string,
-    jwt:string
 }
 
 export interface Certificates{
+    idCertificate:number,
     alias:string,
     entity:string,
     serialNum:number,
     subject:string,
-    expireDate: Date;
+    expireDate: Date,
     password:string,
     idOrg: number,
     clientName:string,

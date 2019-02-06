@@ -3,7 +3,6 @@ import {
 } from '@angular/core';
 import {
   HttpClient,
-  HttpHeaders
 } from '@angular/common/http'
 
 @Injectable({
@@ -11,7 +10,8 @@ import {
 })
 export class ApigttService {
   loginEndpoint: string = 'api/auth';
-  registerEndpoint: string = 'api/users';
+  usersEndpoint: string = 'api/users';
+  cetificatesEndponit: string = 'api/certificates';
   userType: string;
   constructor(private http: HttpClient) {}
 
@@ -30,7 +30,10 @@ export class ApigttService {
       role
     }
     console.log(JSON.stringify(body));
-    return this.http.post(this.registerEndpoint, body).toPromise();
+    return this.http.post(this.usersEndpoint, body).toPromise();
   }
 
+  getBackEndData(): any{
+    return this.http.get(this.cetificatesEndponit).toPromise();
+  }
 }
