@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { DataManagerService } from '../data-manager.service';
+import { DataModel } from '../data-model';
 
 @Component({
   selector: 'app-panel-view',
@@ -7,9 +9,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PanelViewComponent implements OnInit {
 
-  constructor() { }
+  data:DataModel;
+  constructor(private dataManager:DataManagerService) { }
 
   ngOnInit() {
+    this.data = this.dataManager.getData()
+    console.log(this.data);
   }
 
 }

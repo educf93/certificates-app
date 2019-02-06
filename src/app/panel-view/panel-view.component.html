@@ -1,3 +1,41 @@
-<p>
-  panel-view works!
-</p>
+<app-navbar-panel-view></app-navbar-panel-view>
+<div class="containerCerts">
+  <div class="table">
+    <div class="header">
+      <div class="column">
+        <span>Alias</span>
+      </div>
+      <div class="column">
+        <span>Entidad</span>
+      </div>
+      <div class="column">
+        <span>Subject</span>
+      </div>
+      <div class="column">
+        <span>Organización</span>
+      </div>
+      <div class="column">
+        <span>Repositorio</span>
+      </div>
+    </div>
+    <div class="body">
+      <div class="row" *ngFor="let cert of data.certificates">
+        <div class="field">
+          {{cert.alias}}
+        </div>
+        <div class="field">
+          {{cert.entity}}
+        </div>
+        <div class="field">
+          {{cert.subject}}
+        </div>
+        <div class="field">
+          {{cert.idOrg}}
+        </div>
+        <div class="field">
+          {{cert.repo}}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

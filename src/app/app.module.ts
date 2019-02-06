@@ -12,7 +12,8 @@ import { PanelViewComponent } from './panel-view/panel-view.component';
 import { ApiconfigViewComponent } from './apiconfig-view/apiconfig-view.component';
 import { CertificatesViewComponent } from './certificates-view/certificates-view.component';
 import { NavbarViewComponent } from './navbar-view/navbar-view.component';
-import { ApigttService } from './apigtt.service'
+import { ApigttService } from './apigtt.service';
+import { NavbarPanelViewComponent } from './navbar-panel-view/navbar-panel-view.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { ApigttService } from './apigtt.service'
     PanelViewComponent,
     ApiconfigViewComponent,
     CertificatesViewComponent,
-    NavbarViewComponent
+    NavbarViewComponent,
+    NavbarPanelViewComponent
   ],
   imports: [
     BrowserModule,

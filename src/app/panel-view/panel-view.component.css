@@ -1,0 +1,51 @@
+.containerCerts{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: auto;
+    margin-top: 50px;
+}
+.table{
+    width: 80%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-self: center;
+    border: 1px solid silver;
+
+}
+
+.header{
+    width: 100%;
+    height: 50px;
+    display: flex;
+    flex-direction: row;
+    border-bottom: 1px solid silver;
+}
+.column{
+    width: 20%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.column>span{
+    color: #747474;
+    font-style: bold;
+    font-size: 18pt;
+}
+.body{
+    display: flex;
+    justify-content: center;
+    align-content: center;
+}
+.row{
+    width: 100%;
+    height: 50px;
+    display: flex;
+    align-items: center;
+}
+.field{
+    width: 20%;
+    text-align: center;
+}
