@@ -1,0 +1,18 @@
+<app-navbar-panel-view></app-navbar-panel-view>
+
+<div class="container">
+  <div class="form">
+      <h1>Registrar un certificado en la BB.DD.</h1>
+      <span *ngIf="valid">{{msgControl}}</span>
+    <div class="dataForm">
+        <span>Alias*: <input type="text" [(ngModel)]="alias"></span>
+        <span>Repositorio: <input type="text" [(ngModel)]="repo"></span>
+        <span>Nombre del cliente*: <input type="text" name="clientName" [(ngModel)]="clientName"></span>
+        <span>Contraseña*: <input type="password" name="password" [(ngModel)]="password"></span>
+        <span>Lista de integraciones*: <input type="text" [(ngModel)]="integrations"></span>
+        <span>Contacto: <input type="text" [(ngModel)]="emailRenov"></span>
+        <span>Observaciones: <textarea [(ngModel)]="observations" cols="50" rows="10"></textarea></span>       
+        <span>Archivo*: <input type="file" (change)="obtainCert($event)"></span>
+    </div>
+  </div>
+</div>

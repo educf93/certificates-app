@@ -1,0 +1,29 @@
+.container{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: auto;
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+.form{
+    width: 60%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-self: center;
+    border: 1px solid silver;
+    padding: 20px;
+}
+.dataForm{
+    display: flex;
+    flex-direction: column;
+}
+.dataForm>span{
+    margin-top: 20px;
+}
+input{
+    all:unset; 
+    border-bottom: 1px solid silver;
+}

@@ -11,7 +11,7 @@ export interface Certificates{
     idCertificate:number,
     alias:string,
     entity:string,
-    serialNum:number,
+    serialNum:string,
     subject:string,
     expireDate: Date,
     password:string,
@@ -19,5 +19,6 @@ export interface Certificates{
     clientName:string,
     emailRenov:string,
     repo:string,
-    observations:string
+    observations:string,
+    content:string
 }

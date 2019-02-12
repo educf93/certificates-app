@@ -15,7 +15,7 @@
         <span>Organización</span>
       </div>
       <div class="column">
-        <span>Repositorio</span>
+        <span>Options</span>
       </div>
     </div>
     <div class="body">
@@ -24,16 +24,18 @@
           {{cert.alias}}
         </div>
         <div class="field">
-          {{cert.entity}}
+          {{cert.entity.split(',')[1]}}
         </div>
         <div class="field">
-          {{cert.subject}}
+          {{cert.subject.split(',')[1]}}
         </div>
         <div class="field">
           {{cert.idOrg}}
         </div>
         <div class="field">
-          {{cert.repo}}
+          <span>Eliminar</span>
+          <span>Descargar</span>
+          <span>Detalles</span>
         </div>
       </div>
     </div>

@@ -14,7 +14,8 @@ export class DataManagerService {
 
   loadData(){
     return this.api.getBackEndData().then(result => {
-      const certificates = result.map(certs => ({
+      const certificates = result.map(certs => (
+        {
         idCertificate:certs.id,
         alias:certs.alias,
         entity:certs.entity,
