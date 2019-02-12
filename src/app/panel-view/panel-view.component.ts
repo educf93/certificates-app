@@ -20,7 +20,7 @@ export class PanelViewComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.data = this.dataManager.getData()
+    this.data = this.dataManager.getData('')
     console.log(this.data);
   }
 

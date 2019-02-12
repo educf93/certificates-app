@@ -37,12 +37,11 @@ export class ApigttService {
     return this.http.post(this.cetificatesEndponit,body).toPromise();
   }
 
-  getBackEndData(): any{
+  getBackEndData(id): any{
+    console.log(id);
+    if(id!==''){
+      return this.http.get(this.cetificatesEndponit+`/${id}`).toPromise();
+    }
     return this.http.get(this.cetificatesEndponit).toPromise();
-  }
-
-  getContentCert(id:number): any{
-    return this.http.get(this.cetificatesEndponit+`/${id}`).toPromise();
-    
   }
 }

@@ -15,7 +15,7 @@ export class DataManagerService {
 
   constructor(private api:ApigttService, private sanitizer:DomSanitizer) { }
   manageDownload(id:number){
-    this.api.getContentCert(id)
+    this.api.getBackEndData(id)
     .then(
       result => this.downloadData(result.content,result.alias)
     )
@@ -24,8 +24,9 @@ export class DataManagerService {
       
     );
   }
-  loadData(){
-    return this.api.getBackEndData().then(result => {
+  loadData(id){
+    return this.api.getBackEndData(id).then(result => {
+      if(id===''){
       const certificates = result.map(certs => (
         {
         idCertificate:certs.id,
@@ -41,13 +42,14 @@ export class DataManagerService {
         repo:certs.repo,
         observations:certs.observations,
       }))
+      }
       this.data.certificates = result;
     }).catch(error =>{
       console.error(error);
     })
   }
-  getData(){
-    this.loadData();
+  getData(id){
+    this.loadData(id);
     return this.data;
   }
 
