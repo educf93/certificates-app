@@ -41,7 +41,8 @@
     align-content: center;
     height: auto;
     max-height: 400px;
-
+    overflow-y: scroll;
+    overflow-x: hidden;
 }
 .row{
     width: 100%;
