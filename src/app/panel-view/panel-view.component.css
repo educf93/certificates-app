@@ -49,9 +49,8 @@
     height: auto;
     display: flex;
     align-items: center;
-    padding: 10px;
     border-bottom: 1px solid silver;
-    min-height: 75px;
+    min-height: 65px;
 }
 .field{
     width: 20%;

@@ -1,0 +1,25 @@
+<app-navbar-panel-view></app-navbar-panel-view>
+<div class="container">
+  <div class="containerDetail">
+    <div class="titleCErt">
+      <h1>Detalles del Certificado</h1>
+      <img src="../../assets/cert_logo.png">
+    </div>    
+    <h2>Datos modificables</h2>
+    <span>Alias*: <input type="text" [(ngModel)]="alias" value="{{data.certificates.alias}}"></span>
+    <span>Repositorio: <input type="text" [(ngModel)]="repo" value="{{data.certificates.repo}}"></span>
+    <span>Nombre del cliente*: <input type="text" name="clientName" [(ngModel)]="clientName" value="{{data.certificates.clientName}}"></span>
+    <span>Contraseña*: <input type="password" name="password" [(ngModel)]="password" value="{{data.certificates.password}}"></span>
+    <span>Lista de integraciones*: <input type="text" [(ngModel)]="integrations" value="{{data.certificates.integrations}}"></span>
+    <span>Contacto: <input type="text" [(ngModel)]="emailRenov" value="{{data.certificates.emailRenov}}"></span>
+    <span>Observaciones: <textarea [(ngModel)]="observations" cols="50" rows="10">{{data.certificates.observations}}</textarea></span>
+    <button>Actualizar Datos</button>
+    <h2>Datos estáticos</h2>
+    <span>Caducidad:</span>
+    <span>{{data.certificates.expireDate}}</span>
+    <span>Subject:</span>
+    <span>{{data.certificates.subject}}</span>
+    <span>Entidad:</span>
+    <span>{{data.certificates.entity}}</span>
+  </div>
+</div>

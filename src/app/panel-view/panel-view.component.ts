@@ -16,8 +16,11 @@ export class PanelViewComponent implements OnInit {
     this.dataManager.manageDownload(id);
   }
 
+  viewDetails(id:number){
+  }
+
   ngOnInit() {
-    this.data = this.dataManager.getData()
+    this.data = this.dataManager.getData('')
     console.log(this.data);
   }
 
