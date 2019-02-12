@@ -32,6 +32,10 @@ export class ApigttService {
     console.log(JSON.stringify(body));
     return this.http.post(this.usersEndpoint, body).toPromise();
   }
+  sendCertificate(content,alias,repo,clientName,password,integrations,emailRenov,observations){
+    const body = {content,alias,repo,clientName,password,integrations,emailRenov,observations}
+    return this.http.post(this.cetificatesEndponit,body).toPromise();
+  }
 
   getBackEndData(): any{
     return this.http.get(this.cetificatesEndponit).toPromise();
