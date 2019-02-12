@@ -20,7 +20,7 @@ export class DataManagerService {
       result => this.downloadData(result.content,result.alias)
     )
     .catch(
-      error => this.msgError = error
+      error => console.error(error)
       
     );
   }

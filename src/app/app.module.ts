@@ -15,6 +15,7 @@ import { NavbarViewComponent } from './navbar-view/navbar-view.component';
 import { ApigttService } from './apigtt.service';
 import { NavbarPanelViewComponent } from './navbar-panel-view/navbar-panel-view.component';
 import { ChargeCertsViewComponent } from './charge-certs-view/charge-certs-view.component';
+import { DetailViewComponent } from './detail-view/detail-view.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { ChargeCertsViewComponent } from './charge-certs-view/charge-certs-view.
     CertificatesViewComponent,
     NavbarViewComponent,
     NavbarPanelViewComponent,
-    ChargeCertsViewComponent
+    ChargeCertsViewComponent,
+    DetailViewComponent
   ],
   imports: [
     BrowserModule,
