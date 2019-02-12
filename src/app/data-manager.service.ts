@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
 import { ApigttService } from './apigtt.service';
 import { DataModel } from './data-model';
+import { DomSanitizer } from '@angular/platform-browser'
+import { saveAs,FileSaver } from 'file-saver';
 
 @Injectable({
   providedIn: 'root'
@@ -8,10 +10,20 @@ import { DataModel } from './data-model';
 export class DataManagerService {
 
   data:DataModel = { certificates:[] };
-  
+  msgError:string;
+  fileUrl:any;
 
-  constructor(private api:ApigttService) { }
-
+  constructor(private api:ApigttService, private sanitizer:DomSanitizer) { }
+  manageDownload(id:number){
+    this.api.getContentCert(id)
+    .then(
+      result => this.downloadData(result.content,result.alias)
+    )
+    .catch(
+      error => this.msgError = error
+      
+    );
+  }
   loadData(){
     return this.api.getBackEndData().then(result => {
       const certificates = result.map(certs => (
@@ -37,5 +49,22 @@ export class DataManagerService {
   getData(){
     this.loadData();
     return this.data;
+  }
+
+  downloadData(content,filename){
+    var byteCharacters = atob(content);
+    console.log(byteCharacters);
+    var byteNumbers = new Array(byteCharacters.length);
+    console.log(byteNumbers);
+
+    for (var i = 0; i < byteCharacters.length; i++) {
+      byteNumbers[i] = byteCharacters.charCodeAt(i);
+    }
+    var byteArray = new Uint8Array(byteNumbers);
+    console.log(byteArray);
+    var file = new Blob([byteArray] ,{
+      type: 'file/ctr'
+    });
+    saveAs(file,filename+'.p12')
   }
 }

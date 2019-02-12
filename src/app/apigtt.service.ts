@@ -40,4 +40,9 @@ export class ApigttService {
   getBackEndData(): any{
     return this.http.get(this.cetificatesEndponit).toPromise();
   }
+
+  getContentCert(id:number): any{
+    return this.http.get(this.cetificatesEndponit+`/${id}`).toPromise();
+    
+  }
 }
