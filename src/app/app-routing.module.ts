@@ -5,6 +5,7 @@ import { RegisterViewComponent } from './register-view/register-view.component';
 import { PanelViewComponent } from './panel-view/panel-view.component';
 import { ChargeCertsViewComponent } from './charge-certs-view/charge-certs-view.component';
 import { DetailViewComponent } from './detail-view/detail-view.component';
+import { JiraConfigViewComponent } from './jira-config-view/jira-config-view.component';
 
 
 const routes: Routes = [
@@ -31,6 +32,10 @@ const routes: Routes = [
   {
     path:'detail-view/:id',
     component: DetailViewComponent
+  },
+  {
+    path:'jira-config-view',
+    component: JiraConfigViewComponent
   }
 ];
 

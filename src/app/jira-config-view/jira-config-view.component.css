@@ -1,0 +1,25 @@
+.container{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: auto;
+    align-items: center;
+    margin-bottom: 50px;
+}
+.containerConfig{
+    display: flex;
+    flex-direction: column;
+    width: 70%;
+    height: auto;
+    margin-top: 50px;
+    padding: 20px;
+    border: 1px solid silver;
+    margin-bottom: 20px;
+}
+.containerConfig>span{
+    margin-top: 20px;
+}
+input{
+    all:unset;
+    border-bottom: 1px solid silver;
+}
