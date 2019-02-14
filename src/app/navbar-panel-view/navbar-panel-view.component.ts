@@ -8,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 export class NavbarPanelViewComponent implements OnInit {
 
   constructor() { }
-
+  id:string = localStorage.getItem('iduser').replace('"','').replace('"','');
   ngOnInit() {
   }
 

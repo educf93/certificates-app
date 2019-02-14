@@ -1,40 +1,37 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, } from '@angular/core';
 import { Jira } from '../data-model';
 import { ApigttService } from '../apigtt.service';
+import { DataManagerService } from '../data-manager.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-jira-config-view',
   templateUrl: './jira-config-view.component.html',
   styleUrls: ['./jira-config-view.component.css']
 })
-export class JiraConfigViewComponent {
-  user:string;  
-  password:string;
-  proyect:string;
-  architecture:string;
-  team:string;
-  url:string;  
-  exploitation:string;
-  component:string;
-  descripition:string;
-  jiraData:Jira
-  constructor(private api:ApigttService) { }
+export class JiraConfigViewComponent implements OnInit{
+  jiraData:Jira;
+  jiraToken:string;
+  id:number;
+  postRequest:boolean
+  constructor(private api:ApigttService,private dataManager:DataManagerService, private route:ActivatedRoute) { }
 
   createJiraTask(){
-    const jiraData = {user:this.user,
-      password:this.password,
-      proyect:this.proyect,
-      architecture:this.architecture,
-      team:this.team,
-      url:this.url,
-      exploitation:this.exploitation,
-      component:this.component,
-      descripition:this.descripition,
-      jiraData:this.jiraData
-    }
-    this.api.validateUser(jiraData)
-    .then(()=>this.api.addJiraTask(jiraData))
+    this.api.validateUser(this.jiraData)
+    .then((result)=>{
+      this.jiraToken=result['value'];
+      this.api.addJiraTask(this.jiraData,this.jiraToken)
+      .then()
+      .catch();
+    })
     .catch();
+  }
+  ngOnInit(){
+    console.log(this.jiraData);
+    this.id = Number(this.route.snapshot.paramMap.get('id'));
+    this.jiraData = this.dataManager.getJiraData(this.id);
+
+    this.jiraData.user==''?this.postRequest = false : this.postRequest = true;
   }
 
 }

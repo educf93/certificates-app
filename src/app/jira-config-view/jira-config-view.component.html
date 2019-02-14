@@ -2,15 +2,13 @@
 <div class="container">
   <div class="containerConfig">
     <h1>Configuración para añadir una tarea a JIRA</h1>
-    <span>Usuario: <input type="text" [(ngModel)]="user"></span>
-    <span>Contraseña: <input type="password" [(ngModel)]="password"></span>
-    <span>Proyecto: <input type="text" value="SIT" [(ngModel)]="proyect"></span>
-    <span>Arquitectura: <input type="text" [(ngModel)]="architecture"></span>
-    <span>Equipo: <input type="text" [(ngModel)]="team"></span>
-    <span>URL: <input type="text" [(ngModel)]="url"></span>
-    <span>Explotación: <input type="text" [(ngModel)]="exploitation"></span>
-    <span>Componente: <input type="text" [(ngModel)]="component"></span>
-    <span>Descripción: <textarea name="description" id="" cols="60" rows="2" [(ngModel)]="descripition"></textarea></span>
+    <span>Usuario: <input type="text" [(ngModel)]="jiraData.username"></span>
+    <span>Contraseña: <input type="password" [(ngModel)]="jiraData.password"></span>
+    <span>Proyecto: <input type="text" class="static" [(ngModel)]="jiraData.proyect"></span>
+    <span>Issue: <input type="text" class="static" [(ngModel)]="jiraData.issuer"></span>
+    <span>URL: <input type="text" class="static" [(ngModel)]="jiraData.url"></span>
+    <span>Componente: <input type="text" class="static" [(ngModel)]="jiraData.component"></span>
+    <span>Descripción: <textarea name="description" cols="60" rows="2" [(ngModel)]="jiraData.description"></textarea></span>
     <button (click)="createJiraTask()">Enviar</button>
   </div>
 </div>

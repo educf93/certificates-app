@@ -14,6 +14,7 @@ export class ApigttService {
   usersEndpoint: string = 'api/users';
   cetificatesEndponit: string = 'api/certificates';
   jiraEndpoint:string = 'api/jira';
+  vaidateJiraUserEndpoint:string = 'rest/auth/1/session';
   userType: string;
   constructor(private http: HttpClient) {}
 
@@ -39,18 +40,28 @@ export class ApigttService {
     return this.http.post(this.cetificatesEndponit,body).toPromise();
   }
 
-  getBackEndData(id): any{
+  getBackEndData(id,dataType): any{
     console.log(id);
-    if(id!==''){
+    if(id!=='' && dataType!=true){
       return this.http.get(this.cetificatesEndponit+`/${id}`).toPromise();
+    }else if(id!=='' && dataType!=false){
+      return this.http.get(this.jiraEndpoint+`/${id}`).toPromise();
     }
     return this.http.get(this.cetificatesEndponit).toPromise();
   }
 
   validateUser(jiraData:Jira){
-    return this.http.post(this.jiraEndpoint,jiraData).toPromise();
+    const user = jiraData.user;
+    const password = jiraData.password;
+    const url = jiraData.url;
+    const body = {'username':user, 'password':password};
+    
+    this.http.post(this.jiraEndpoint,body);
+    return this.http.post(url+this.vaidateJiraUserEndpoint,body).toPromise();
   }
-  addJiraTask(jiraData:Jira){
-    return this.http.post('',jiraData);
+  addJiraTask(jiraData:Jira,jiraToken){
+    const body={};
+    const options = {'Bearer':jiraToken}
+    return this.http.post('',body).toPromise();
   }
 }

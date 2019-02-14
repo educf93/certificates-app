@@ -6,10 +6,8 @@ export interface Jira {
   user:string,
   password:string,
   proyect:string,
-  architecture:string,
-  team:string,
   url:string,
-  exploitation:string,
+  issue:string,
   component:string,
   descripition:string
 }

@@ -23,3 +23,6 @@ input{
     all:unset;
     border-bottom: 1px solid silver;
 }
+.static{
+    cursor: not-allowed;
+}

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { DataManagerService } from '../data-manager.service';
-import { DataModel } from '../data-model';
+import { DataModel, Jira } from '../data-model';
 
 @Component({
   selector: 'app-panel-view',
@@ -10,6 +10,8 @@ import { DataModel } from '../data-model';
 export class PanelViewComponent implements OnInit {
 
   data:DataModel;
+  jiraData:Jira;
+  id:string = localStorage.getItem('iduser').replace('"','').replace('"','');
   constructor(private dataManager:DataManagerService) { }
 
   downloadCert(id:number){
@@ -21,6 +23,8 @@ export class PanelViewComponent implements OnInit {
 
   ngOnInit() {
     this.data = this.dataManager.getData('')
+    this.jiraData = this.dataManager.getJiraData(this.id);
+    console.log(this.jiraData);
     console.log(this.data);
   }
 
