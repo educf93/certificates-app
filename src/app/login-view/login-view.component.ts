@@ -13,6 +13,7 @@ export class LoginViewComponent {
   error:any;
   showError:boolean = false;
   jwt:string;
+  id:number;
   constructor(private router: Router, private api:ApigttService) { }
 
   login(){
@@ -27,8 +28,9 @@ export class LoginViewComponent {
       console.log(result);
       
       this.jwt = JSON.parse(result).token;
-      
-      console.log(this.jwt);
+      this.id = JSON.parse(result).id;
+      localStorage.setItem('iduser',JSON.stringify(this.id));
+      localStorage.setItem('token',JSON.stringify(this.jwt));
       this.router.navigate(['/panel-view']);
     }).catch((error) =>{
       this.error;

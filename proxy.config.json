@@ -3,5 +3,10 @@
         "target":"https://localhost:44381",
         "secure": false,
         "changeOrigin": true
+    },
+    "/rest":{
+        "target":"https://educf93.atlassian.net/",
+        "secure": false,
+        "changeOrigin": true
     }
 }
