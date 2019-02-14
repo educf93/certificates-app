@@ -3,13 +3,15 @@ export interface DataModel {
 }
 
 export interface Jira {
-  user:string,
+  id:number,
+  username:string,
   password:string,
   proyect:string,
   url:string,
   issue:string,
   component:string,
   descripition:string
+  iduser:number;
 }
 
 export interface Certificates {

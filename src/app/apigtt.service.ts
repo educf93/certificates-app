@@ -5,6 +5,7 @@ import {
   HttpClient,
 } from '@angular/common/http'
 import { Jira } from './data-model';
+import { Base64 } from 'js-base64';
 
 @Injectable({
   providedIn: 'root'
@@ -15,7 +16,9 @@ export class ApigttService {
   cetificatesEndponit: string = 'api/certificates';
   jiraEndpoint:string = 'api/jira';
   vaidateJiraUserEndpoint:string = 'rest/auth/1/session';
+  addTaskJiraEndpoint:string = 'rest/api/2/issue';
   userType: string;
+  auBase64:string;
   constructor(private http: HttpClient) {}
 
   loginUser(username, password): any {
@@ -51,17 +54,54 @@ export class ApigttService {
   }
 
   validateUser(jiraData:Jira){
-    const user = jiraData.user;
+    const user = jiraData.username;
     const password = jiraData.password;
-    const url = jiraData.url;
     const body = {'username':user, 'password':password};
-    
-    this.http.post(this.jiraEndpoint,body);
-    return this.http.post(url+this.vaidateJiraUserEndpoint,body).toPromise();
+    const options = {headers: {
+      "X-Atlassian-Token": "nocheck",
+      "Content-Type": "application/json",
+      "User-Agent": "xx"
+    }
   }
-  addJiraTask(jiraData:Jira,jiraToken){
-    const body={};
-    const options = {'Bearer':jiraToken}
-    return this.http.post('',body).toPromise();
+    return this.http.post(this.vaidateJiraUserEndpoint,body,options).toPromise();
+  }
+  addJiraTask(jiraData:Jira,auString){
+    console.log(jiraData.issue);
+    this.auBase64 = Base64.encode(auString);
+    const body={
+      
+        "fields": {
+           "project":
+           {
+              "key": jiraData.proyect
+           },
+           "summary": "Prueba",
+           "description": jiraData.descripition,
+           "issuetype": {
+              "name": jiraData.issue
+           }
+       }
+    }
+    const options = {
+      headers:{
+        "X-Atlassian-Token": "nocheck",
+        "Content-Type": "application/json",
+        "User-Agent": "xx",
+        "Authorization":"Basic "+this.auBase64
+      }
+    }
+    return this.http.post(this.addTaskJiraEndpoint,body,options).toPromise();
+  }
+  manipulateDBJira(postRequest,jiraData:Jira){
+    console.log(jiraData);
+    const options = {
+      headers:{
+        "Content-Type":"application/json" 
+      }
+    }
+    if(postRequest == true){
+      return this.http.post(this.jiraEndpoint,jiraData).toPromise();
+    }
+    return this.http.put(this.jiraEndpoint+`/${jiraData.iduser}`,jiraData,options).toPromise();
   }
 }

@@ -24,8 +24,18 @@ export class PanelViewComponent implements OnInit {
   ngOnInit() {
     this.data = this.dataManager.getData('')
     this.jiraData = this.dataManager.getJiraData(this.id);
-    console.log(this.jiraData);
-    console.log(this.data);
+    if(this.jiraData == undefined){
+      this.jiraData = {
+        id:parseInt(this.id),
+        username:'',
+        password:'',
+        proyect:'',
+        url:'',
+        issue:'',
+        component:'',
+        descripition:'',
+        iduser:parseInt(this.id)
+    }
   }
-
+  }
 }

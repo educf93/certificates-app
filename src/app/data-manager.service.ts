@@ -83,6 +83,17 @@ export class DataManagerService {
       this.jiraData = result;
      //console.log(this.jiraData);
     })
-    .catch(error => console.error(error))
+    .catch(error =>{console.log(error)
+       this.jiraData = {
+        id:id,
+        username:'',
+        password:'',
+        proyect:'',
+        url:'',
+        issue:'',
+        component:'',
+        descripition:'',
+        iduser:id
+      }})
   }
 }
