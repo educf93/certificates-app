@@ -15,7 +15,7 @@ export interface Jira {
 }
 
 export interface Certificates {
-  idCertificate: number,
+    id: number,
     alias: string,
     entity: string,
     serialNum: string,
@@ -27,5 +27,7 @@ export interface Certificates {
     emailRenov: string,
     repo: string,
     observations: string,
-    content: string
+    content: string,
+    notice:boolean,
+    ticketed:boolean
 }

@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { ApigttService } from './apigtt.service';
-import { DataModel, Jira } from './data-model';
+import { DataModel, Jira, Certificates } from './data-model';
 import { DomSanitizer } from '@angular/platform-browser'
 import { saveAs,FileSaver } from 'file-saver';
 
@@ -31,7 +31,7 @@ export class DataManagerService {
       if(id===''){
       const certificates = result.map(certs => (
         {
-        idCertificate:certs.id,
+        id:certs.id,
         alias:certs.alias,
         entity:certs.entity,
         serialNum:certs.serialNum,
@@ -43,6 +43,8 @@ export class DataManagerService {
         emailRenov:certs.emailRenov,
         repo:certs.repo,
         observations:certs.observations,
+        notice:certs.notice,
+        ticketed:certs.ticketed
       }))
       }
       this.data.certificates = result;
@@ -95,5 +97,12 @@ export class DataManagerService {
         descripition:'',
         iduser:id
       }})
+  }
+  updateCerts(cert:Certificates){
+    this.api.updateCertDB(cert)
+    .then(
+      this.loadData('')
+    )
+    .catch( error => console.log(error))
   }
 }

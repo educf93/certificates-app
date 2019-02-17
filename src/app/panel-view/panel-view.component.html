@@ -6,7 +6,7 @@
         <span>Alias</span>
       </div>
       <div class="column">
-        <span>Entidad</span>
+        <span>Fecha de caducidad</span>
       </div>
       <div class="column">
         <span>Subject</span>
@@ -24,7 +24,7 @@
           {{cert.alias}}
         </div>
         <div class="field">
-          {{cert.entity.split(',')[1]}}
+          {{cert.expireDate}}
         </div>
         <div class="field">
           {{cert.subject.split(',')[1]}}
@@ -33,9 +33,10 @@
           {{cert.idOrg}}
         </div>
         <div class="field">
-          <span>Eliminar</span>
           <span (click)="downloadCert(cert.id)">Descargar</span>
           <span routerLink="/detail-view/{{cert.id}}">Detalles</span>
+          <span>Eliminar</span>
+          <span *ngIf="cert.notice && !cert.ticketed" (click)="addTask(cert)">Añadir aviso</span>
         </div>
       </div>
     </div>
