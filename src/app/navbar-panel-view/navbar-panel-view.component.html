@@ -9,8 +9,11 @@
   <div class="link" routerLink="/charge-certs" >
     <b><a routerLinkActive="active">Subir Certificados</a></b>
   </div>
-  <div class="link" routerLink="/jira-config-view/{{id}}" >
+  <div class="link" routerLink="/jira-config-view" >
     <b><a routerLinkActive="active">Configuración de Jira</a></b>
+  </div>
+  <div class="link" routerLink="/login" (click)="deleteCredentials()">
+    <b><a routerLinkActive="active">Salir</a></b>
   </div>
   </div>
 </nav>

@@ -34,7 +34,7 @@ const routes: Routes = [
     component: DetailViewComponent
   },
   {
-    path:'jira-config-view/:id',
+    path:'jira-config-view',
     component: JiraConfigViewComponent
   }
 ];

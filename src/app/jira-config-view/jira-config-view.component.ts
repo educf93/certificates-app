@@ -14,32 +14,26 @@ export class JiraConfigViewComponent implements OnInit{
   jiraData:Jira;
   jiraToken:string;
   auString:string;
-  id:number;
+  id:string = localStorage.getItem('iduser');
   postRequest:boolean
-  constructor(private api:ApigttService,private dataManager:DataManagerService, private route:ActivatedRoute) { }
+  constructor(private api:ApigttService,private dataManager:DataManagerService, private route:ActivatedRoute) { 
+    if(this.id !== null){
+      this.id=this.id.replace('"','').replace('"','');
+      console.log(this.id)
+    }
+  }
 
-  //createJiraTask(){
-  //  this.api.validateUser(this.jiraData)
-  //  .then((result)=>{
-  //    this.auString = this.jiraData.username+":"+this.jiraData.password;
-  //    this.api.addJiraTask(this.jiraData,this.auString)
-  //    .then(result => console.log(result))
-  //    .catch(error => console.log(error));
-  //  })
-  //  .catch(error => console.error(error));
-  //}
   validateOrRegister(){
     this.api.manipulateDBJira(this.postRequest,this.jiraData)
     .then(result => console.log(result))
     .catch(error => console.log(error));
   }
   ngOnInit(){
-    this.id = Number(this.route.snapshot.paramMap.get('id'));
     this.jiraData = this.dataManager.getJiraData(this.id);
     this.jiraData.username==''?this.postRequest = true : this.postRequest = false;
     if(this.jiraData == undefined){
       this.jiraData = {
-        id:this.id,
+        id:parseInt(this.id),
         username:'',
         password:'',
         proyect:'',
@@ -47,7 +41,7 @@ export class JiraConfigViewComponent implements OnInit{
         issue:'',
         component:'',
         descripition:'',
-        iduser:this.id
+        iduser:parseInt(this.id)
     }
   }
 
