@@ -11,8 +11,9 @@ nav{
     background-color: #89c403;
 }
 .linkContainer{
-    width: 50%;
+    width: 70%;
     display: flex;
+    justify-content: space-around;
 }
 .link{
     width:auto;

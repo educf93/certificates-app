@@ -5,13 +5,14 @@ import {
 import {
   ApigttService
 } from '../apigtt.service';
+import { CredentialsService } from '../credentials.service';
 
 @Component({
   selector: 'app-charge-certs-view',
   templateUrl: './charge-certs-view.component.html',
   styleUrls: ['./charge-certs-view.component.css']
 })
-export class ChargeCertsViewComponent {
+export class ChargeCertsViewComponent implements OnInit{
   alias: string;
   repo: string;
   clientName: string;
@@ -22,7 +23,7 @@ export class ChargeCertsViewComponent {
   valid: boolean;
   msgControl:string;
 
-  constructor(private api: ApigttService) {}
+  constructor(private api: ApigttService, private credentials:CredentialsService) {}
 
   obtainCert(event) {
     var reader = new FileReader();
@@ -65,6 +66,10 @@ export class ChargeCertsViewComponent {
       this.valid=true;
       this.msgControl = 'Los campos con (*) no pueden estar vacios. Comprueba los datos.'
     }
+  }
+
+  ngOnInit(){
+    this.credentials;
   }
   // sendForm() {
   //   this.api.sendCertificate(this.alias, this.repo).then(result => {

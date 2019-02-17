@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { CredentialsService } from '../credentials.service';
 
 @Component({
   selector: 'app-navbar-panel-view',
@@ -7,9 +8,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NavbarPanelViewComponent implements OnInit {
 
-  constructor() { }
-  id:string = localStorage.getItem('iduser').replace('"','').replace('"','');
+  constructor(private credentials: CredentialsService) {
+    
+  }
+  
+  deleteCredentials(){
+    localStorage.clear()
+  }
   ngOnInit() {
+    this.credentials
   }
 
 }

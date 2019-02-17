@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { DataManagerService } from '../data-manager.service';
 import { DataModel, Jira, Certificates } from '../data-model';
 import { ApigttService } from '../apigtt.service';
+import { CredentialsService } from '../credentials.service';
 
 @Component({
   selector: 'app-panel-view',
@@ -12,9 +13,13 @@ export class PanelViewComponent implements OnInit {
 
   data:DataModel;
   jiraData:Jira;
-  id:string = localStorage.getItem('iduser').replace('"','').replace('"','');
+  id:string = localStorage.getItem('iduser');
   auString:string;
-  constructor(private dataManager:DataManagerService, private api:ApigttService) { }
+  constructor(private dataManager:DataManagerService, private api:ApigttService,private credentials:CredentialsService) {
+      if(this.id !== null){
+        this.id = this.id.replace('"','').replace('"','');
+      }
+   }
 
   downloadCert(id:number){
     this.dataManager.manageDownload(id);
@@ -33,6 +38,7 @@ export class PanelViewComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.credentials;
     this.data = this.dataManager.getData('')
     this.jiraData = this.dataManager.getJiraData(this.id);
     if(this.jiraData == undefined){
