@@ -33,10 +33,14 @@
           {{cert.idOrg}}
         </div>
         <div class="field">
+          <div>
           <span (click)="downloadCert(cert.id)">Descargar</span>
           <span routerLink="/detail-view/{{cert.id}}">Detalles</span>
+          </div>
+          <div>
           <span>Eliminar</span>
           <span *ngIf="cert.notice && !cert.ticketed" (click)="addTask(cert)">Añadir aviso</span>
+          </div>
         </div>
       </div>
     </div>
