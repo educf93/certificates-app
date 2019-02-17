@@ -4,7 +4,7 @@ import {
 import {
   HttpClient,
 } from '@angular/common/http'
-import { Jira } from './data-model';
+import { Jira, Certificates } from './data-model';
 import { Base64 } from 'js-base64';
 
 @Injectable({
@@ -65,7 +65,7 @@ export class ApigttService {
   }
     return this.http.post(this.vaidateJiraUserEndpoint,body,options).toPromise();
   }
-  addJiraTask(jiraData:Jira,auString){
+  addJiraTask(jiraData:Jira,auString,cert:Certificates){
     console.log(jiraData.issue);
     this.auBase64 = Base64.encode(auString);
     const body={
@@ -75,7 +75,7 @@ export class ApigttService {
            {
               "key": jiraData.proyect
            },
-           "summary": "Prueba",
+           "summary": `El certificado con alias ${cert.alias} caducara el ${cert.expireDate}`,
            "description": jiraData.descripition,
            "issuetype": {
               "name": jiraData.issue
@@ -103,5 +103,9 @@ export class ApigttService {
       return this.http.post(this.jiraEndpoint,jiraData).toPromise();
     }
     return this.http.put(this.jiraEndpoint+`/${jiraData.iduser}`,jiraData,options).toPromise();
+  }
+  updateCertDB(cert:Certificates){
+    const body = { cert };
+    return this.http.put(this.cetificatesEndponit+`/${cert.id}`,body).toPromise();
   }
 }

@@ -6,7 +6,7 @@
     margin-top: 50px;
 }
 .table{
-    width: 90%;
+    width: 95%;
     height: auto;
     display: flex;
     flex-direction: column;
@@ -37,7 +37,6 @@
 .body{
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-content: center;
     height: auto;
     max-height: 400px;
@@ -50,18 +49,22 @@
     display: flex;
     align-items: center;
     border-bottom: 1px solid silver;
-    min-height: 65px;
+    min-height: 70px;
 }
 .field{
     width: 20%;
     text-align: center;
 }
-.field>span{
+.field>div>span{
     margin-right: 10px;
     cursor:pointer;
 }
-.field>span:hover{
+.field>div>span:hover{
     text-decoration: underline #89C403;
     color: #89C403;
     
+}
+.field>div{
+    width: 100%;
+    margin-top: 5px;
 }
